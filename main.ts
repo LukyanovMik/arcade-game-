@@ -104,6 +104,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sp
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonTealDepressed, function (sprite, location) {
     game.over(true)
     mySprite.startEffect(effects.confetti)
+    info.stopCountdown()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.darkGroundNorth, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -113,8 +114,8 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
     projectile.startEffect(effects.fire, 500)
 })
 let mySprite7: Sprite = null
-let mySprite6: Sprite = null
 let mySprite5: Sprite = null
+let mySprite6: Sprite = null
 let mySprite4: Sprite = null
 let mySprite3: Sprite = null
 let projectile: Sprite = null
@@ -219,6 +220,7 @@ let mySprite2 = sprites.create(img`
 `, SpriteKind.Enemy)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(25, 20))
 mySprite2.follow(mySprite, 65)
+info.startCountdown(100)
 game.onUpdateInterval(2000, function () {
     mySprite3 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -264,28 +266,6 @@ game.onUpdateInterval(2000, function () {
     tiles.placeOnTile(mySprite4, tiles.getTileLocation(48, 32))
 })
 game.onUpdateInterval(2000, function () {
-    mySprite5 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-2 2 . . . . . . . . . . . . . . 
-2 2 2 . . . . . . . . . . . . . 
-2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 
-2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 
-2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 
-2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-2 2 2 . . . . . . . . . . . . . 
-2 2 . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Enemy)
-    mySprite5.setVelocity(50, 0)
-    tiles.placeOnTile(mySprite5, tiles.getTileLocation(1, 38))
-})
-game.onUpdateInterval(2000, function () {
     mySprite6 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -306,6 +286,28 @@ game.onUpdateInterval(2000, function () {
 `, SpriteKind.Enemy)
     mySprite6.setVelocity(50, 0)
     tiles.placeOnTile(mySprite6, tiles.getTileLocation(1, 41))
+})
+game.onUpdateInterval(2000, function () {
+    mySprite5 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+2 2 . . . . . . . . . . . . . . 
+2 2 2 . . . . . . . . . . . . . 
+2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 
+2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 
+2 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 
+2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+2 2 2 . . . . . . . . . . . . . 
+2 2 . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Enemy)
+    mySprite5.setVelocity(50, 0)
+    tiles.placeOnTile(mySprite5, tiles.getTileLocation(1, 38))
 })
 game.onUpdateInterval(2000, function () {
     mySprite7 = sprites.create(img`
